@@ -11,7 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- font awesome cdn   -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- css  -->
     <link rel="stylesheet" href="style.css">
@@ -67,27 +69,31 @@
     </header>
 
     <main>
-        <!-- tree cards  -->
+        <!-- tree cards section -->
         <div class="mt-[100px] pb-[100px] max-w-[1650px] m-auto">
             <h1 class="font-semibold text-3xl text-center">Choose Your Trees</h1>
 
             <!-- Categories section  -->
-            <div class="md:flex justify-center mt-10">
-                <div class="md:mr-8 mt-4">
+            <div class="md:flex justify-center md:mt-0 mt-10">
+                <div class="md:mr-8 md:mt-0 mt-4">
                     <h1 class="font-semibold text-xl text-center md:text-start">Categories</h1>
-                    <div >
+                    <div>
                         <ul id="allplant-container">
-                            <li onclick="loadAllPlants()"><h1 class="hover:bg-[#15803D] md:w-[250px] p-2 hover:text-white rounded-md font-medium outline-1 outline-gray-200 m-1 md:outline-0 active category-btn">All Plants</h1></li>
+                            <li onclick="loadAllPlants()">
+                                <h1 id="active-category-allPlants"
+                                    class="hover:bg-[#15803D] md:w-[250px] p-2 hover:text-white rounded-md font-medium outline-1 outline-gray-200 m-1 md:outline-0 active category-btn text-center md:text-start">
+                                    All Plants</h1>
+                            </li>
                         </ul>
                         <ul id="categories-container" class="flex justify-center flex-wrap md:flex-col">
-                            <li><h1 class="hover:bg-[#15803D] md:w-[250px] p-2 hover:text-white rounded-md font-medium outline-1 outline-gray-200 m-1 md:outline-0">Fruit Trees</h1></li>
+
                         </ul>
                     </div>
                 </div>
 
                 <!-- cards  -->
-                <div id="cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-5 px-4 md:px-0">
-                    
+                <div id="cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-5 px-4 md:px-0 items-stretch">
+
                 </div>
 
                 <!-- Cart Button (mobile only) -->
@@ -97,29 +103,60 @@
                 </button>
 
                 <!-- Cart Section -->
-                <div id="cart"
-                    class="fixed bottom-0 left-0 w-full h-[60%] bg-white p-4 rounded-t-2xl hidden md:block md:static md:w-[250px] md:h-auto md:rounded-lg md:ml-8">
+                <div
+                    class="cart-section fixed bottom-0 left-0 w-full h-[60%] bg-white p-4 rounded-t-2xl hidden md:block md:static md:w-[250px] md:h-auto md:rounded-lg md:ml-8">
                     <div class="flex justify-between items-center mb-2">
                         <h1 class="font-semibold text-xl">Your Cart</h1>
-                        <button onclick="toggleCart()" class="text-gray-500 md:hidden"><i class="fa-solid fa-xmark"></i></button>
+                        <button onclick="toggleCart()" class="text-gray-500 md:hidden">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
                     </div>
-                    <div class="mt-2 space-y-2">
-                        <div class="flex justify-between items-center bg-green-50 p-2 rounded-lg">
-                            <div>
-                                <h1 class="text-sm font-semibold">Mango Tree</h1>
-                                <p class="text-gray-500 mt-2">৳500 × 1</p>
-                            </div>
-                            <span class="text-gray-500">✖</span>
-                        </div>
-                        <hr class="border-t-1 border-gray-200">
-                        <div class="flex justify-between font-semibold">
-                            <h1>Total:</h1>
-                            <h2>৳500</h2>
-                        </div>
+                    <div id="cart" class="mt-2 space-y-2">
+                        <div class="cart-items"></div>
+                        <div class="cart-total"></div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <!-- About the Campaign section  -->
+         <div class="max-w-[1090px] m-auto">
+            <h1 class="font-semibold text-3xl text-center">About the Campaign</h1>
+            <div class="md:flex items-center mt-10">
+                <img src="assets/about.png" alt="">
+                <div class="md:ml-8 mt-10 md:mt-0 px-2 md:px-0">
+                    <p class="text-[#1F2937]">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+                    <ul class="list-disc">
+                        <li class="ml-6">Restoration of natural habitats</li>
+                        <li class="ml-6">Improvement of air quality</li>
+                        <li class="ml-6">Support for local communities</li>
+                    </ul>
+                </div>
+            </div>
+         </div>
+
+
+         <!-- Our Impact section  -->
+          <div class="bg-[#CFF0DC] mt-[100px]">
+            <div class="py-[50px] md:py-[100px] px-4 md:px-[135px]">
+                <h1 class="text-3xl font-semibold text-center">Our Impact</h1>
+                <div class="md:grid grid-cols-3 gap-[50px] mt-10">
+                    <div class="flex flex-col items-center justify-center bg-white h-[156px] rounded-xl">
+                        <h1 class="text-[#15803D] text-3xl font-semibold mb-3">500K+</h1>
+                        <p>Trees Planted</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center bg-white h-[156px] rounded-xl mt-6 md:mt-0">
+                        <h1 class="text-[#15803D] text-3xl font-semibold mb-3">120+</h1>
+                        <p>Communities Involved</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center bg-white h-[156px] rounded-xl mt-6 md:mt-0">
+                        <h1 class="text-[#15803D] text-3xl font-semibold mb-3">30+</h1>
+                        <p>Countries Reached</p>
+                    </div>
+                </div>
+            </div>
+          </div>
     </main>
 
     <script src="index.js"></script>
