@@ -23,14 +23,9 @@ const loadAllPlants = () => {
 const loadCategories = () => {
     fetch("https://openapi.programming-hero.com/api/categories")
         .then((res) => res.json())
-        .then((json) => {
-
-            displayCategories(json.categories)
-        });
+        .then((json) => displayCategories(json.categories)
+        );
 };
-
-
-
 
 
 const loadPlantByCategory = (name) => {
@@ -183,11 +178,11 @@ const addToCart = (plant) => {
         });
     }
 
-    renderCart();
+    displayCart();
 };
 
 
-const renderCart = () => {
+const displayCart = () => {
     const cartContainer = document.getElementById("cart");
     const cartList = cartContainer.querySelector(".cart-items");
     cartList.innerHTML = "";
@@ -227,7 +222,7 @@ const removeFromCart = (name) => {
     if (index !== -1) {
         cartItems.splice(index, 1);
     }
-    renderCart();
+    displayCart();
 };
 
 
