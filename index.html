@@ -53,7 +53,8 @@
             </div>
             <div class="navbar-end">
                 <a class="btn btn-soft bg-[#FACC15] text-[#15803D] rounded-[50px] border-none
-                hover:bg-yellow-300 hover:scale-105 active:bg-yellow-300 active:scale-105 transition duration-200">Plant a Tree</a>
+                hover:bg-yellow-300 hover:scale-105 active:bg-yellow-300 active:scale-105 transition duration-200">Plant
+                    a Tree</a>
             </div>
         </div>
 
@@ -65,7 +66,8 @@
                 <p class="text-[#1F2937] mt-2">Join our mission to plant 1 million trees and make the Earth greener for
                     future <br> generations.</p>
                 <button class="btn bg-[#FACC15] mt-6 rounded-[50px] text-[#15803D]
-                hover:bg-yellow-300 hover:scale-105 active:bg-yellow-300 active:scale-105 transition duration-200">Get Involved</button>
+                hover:bg-yellow-300 hover:scale-105 active:bg-yellow-300 active:scale-105 transition duration-200">Get
+                    Involved</button>
             </div>
             <img class="hidden md:block " src="assets/hero-leaf2.png" alt="">
         </div>
@@ -102,15 +104,9 @@
                     </div>
                 </div>
 
-                <!-- Cart Button (mobile only) -->
-                <button onclick="toggleCart()"
-                    class="fixed bottom-4 right-4 bg-green-700 text-white p-4 rounded-full shadow-lg md:hidden text-3xl">
-                    <i class="fa-solid fa-cart-arrow-down"></i>
-                </button>
-
                 <!-- Cart Section -->
                 <div
-                    class="cart-section fixed bottom-0 left-0 w-full h-[60%] bg-white p-4 rounded-t-2xl hidden md:block md:static md:w-[250px] md:h-auto md:rounded-lg md:ml-8">
+                    class="cart-section fixed bottom-0 left-0 w-full h-[50%] bg-white p-4 rounded-t-2xl hidden md:block md:static md:w-[250px] md:h-auto md:rounded-lg md:ml-8 z-[9998] overflow-y-auto">
                     <div class="flex justify-between items-center mb-2">
                         <h1 class="font-semibold text-xl">Your Cart</h1>
                         <button onclick="toggleCart()" class="text-gray-500 md:hidden">
@@ -216,7 +212,15 @@
         <p class="text-center text-white">© 2025 Green Earth. All Rights Reserved.</p>
     </footer>
 
+
     <script src="index.js"></script>
+
+
+    <!-- Cart Button (mobile only) -->
+    <button onclick="toggleCart()"
+        class="fixed bottom-4 right-4 bg-green-700 text-white p-4 rounded-full shadow-lg md:hidden text-3xl z-[9999]">
+        <i class="fa-solid fa-cart-arrow-down"></i>
+    </button>
 </body>
 
 </html>
