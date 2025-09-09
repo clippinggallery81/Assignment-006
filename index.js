@@ -46,7 +46,34 @@ const loadPlantByCategory = (name) => {
 }
 
 
+const loadPlantDetails = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`
+    const res = await fetch(url);
+    const details = await res.json();
+    displayPlantDetails(details.plants);
+       
+}
 
+const displayPlantDetails = (plant) => {
+    const detailsModal = document.getElementById("modal-details");
+    detailsModal.innerHTML = `
+    <div class="bg-white p-4 rounded-xl mt-4 md:mt-0 md:w-full h-full flex flex-col justify-between">
+                        <img class="h-[185px] w-full rounded-xl mx-auto object-cover" src="${plant.image}" alt="">
+                        <h1 onclick="loadPlantDetails(${plant.id})" class="font-semibold mt-3">${plant.name}</h1>
+                        <p class="text-[#1F2937] text-sm">${plant.description}</p>
+                        <div class="flex justify-between my-2">
+                            <div class="text-[#15803D] bg-[#DCFCE7] py-1 px-3 rounded-full">
+                                <h1>${plant.category}</h1>
+                            </div>
+                            <h1 class="font-semibold">${plant.price}</h1>
+                        </div>
+                        <button  class="add-to-cart w-[100%] bg-[#15803D] text-white py-3 rounded-full mt-3 hover:scale-105 hover:bg-green-900 
+                        active:bg-green-900 active:scale-105 transition duration-200">Add to Cart</button>
+                    </div>
+    `
+    document.getElementById("plant-modal").showModal();
+    
+}
 
 const displayAllPlants = (plants) => {
     const allPlantsContainer = document.getElementById("cards-container");
@@ -57,7 +84,7 @@ const displayAllPlants = (plants) => {
         card.innerHTML = `
         <div class="bg-white p-4 rounded-xl mt-4 md:mt-0 md:w-[350px] h-full flex flex-col justify-between">
                         <img class="h-[185px] w-[350px] rounded-xl mx-auto object-cover" src="${plant.image}" alt="">
-                        <h1 class="font-semibold mt-3">${plant.name}</h1>
+                        <h1 onclick="loadPlantDetails(${plant.id})" class="font-semibold mt-3">${plant.name}</h1>
                         <p class="text-[#1F2937] text-sm">${plant.description}</p>
                         <div class="flex justify-between my-2">
                             <div class="text-[#15803D] bg-[#DCFCE7] py-1 px-3 rounded-full">
@@ -95,7 +122,7 @@ const displayPlantsByCategory = (plants, categoryName) => {
                 <div class="bg-white p-4 rounded-xl mt-4 md:mt-0 md:w-[350px]
                 flex flex-col justify-between">
                         <img class="h-[185px] w-[350px] rounded-xl mx-auto object-cover" src="${plant.image}" alt="">
-                        <h1 class="font-semibold mt-3">${plant.name}</h1>
+                        <h1 onclick="loadPlantDetails(${plant.id})" class="font-semibold mt-3">${plant.name}</h1>
                         <p class="text-[#1F2937] text-sm">${plant.description}</p>
                         <div class="flex justify-between my-2">
                             <div class="text-[#15803D] bg-[#DCFCE7] py-1 px-3 rounded-full">
